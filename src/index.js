@@ -1,9 +1,14 @@
 import express from 'express'
+import cors from 'cors'
+import bodyParser from 'body-parser'
+import { UserController } from './controllers'
 
 const server = express()
 
-server.get('/', (req, res) => {
-  res.send('Hello World')
-})
+server.use(cors())
+server.use(bodyParser.json());
+server.use(express.urlencoded({ extended: true }));
+
+server.use('/user', UserController)
 
 server.listen(2000)
