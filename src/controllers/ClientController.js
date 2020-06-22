@@ -6,4 +6,8 @@ router.get('/', (req, res) => {
   res.send('Hello World')
 })
 
-export const UserController = router
+router.post('/', (req, res) => {
+  res.send('Hello World')
+})
+
+export const ClientController = router
