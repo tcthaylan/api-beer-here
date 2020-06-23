@@ -1,5 +1,4 @@
-import mongoose from 'mongoose'
-
+const mongoose = require('mongoose')
 // mongoose.connect('mongodb://localhost/noderest', { useMongoCliente: true });
 // mongoose.createConnection('mongodb://localhost/noderest', { useNewUrlParser:true });
 
@@ -11,4 +10,4 @@ mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopol
 // Indica a classe de Promise que o Mongoose vai utilizar
 mongoose.Promise = global.Promise;
 
-export default mongoose
+module.exports = mongoose

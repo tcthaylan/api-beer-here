@@ -5,7 +5,6 @@ const schemaOptions = {
 }
 
 const AddressSchema = new Schema({
-  id: Schema.Types.ObjectId,
   street: String,
   number: Number,
   city: String,

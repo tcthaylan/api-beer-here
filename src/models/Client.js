@@ -5,7 +5,6 @@ const schemaOptions = {
 }
 
 const ClientSchema = new Schema({
-  id: Schema.Types.ObjectId,
   name: {
     type: String,
     required: true
