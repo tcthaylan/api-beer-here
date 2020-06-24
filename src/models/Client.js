@@ -14,19 +14,20 @@ const ClientSchema = new Schema({
     required: true,
     unique: true
   },
-  password: {
-    type: String,
-    required: true
-  },
-  phoneNumber: {
-    type: String,
-    required: true
-  },
-  address: {
-    type: Schema.Types.ObjectId,
-    ref: 'Address'
-  }
+  // password: {
+  //   type: String,
+  //   required: true
+  // },
+  // phoneNumber: {
+  //   type: String,
+  //   required: true
+  // },
+  // address: {
+  //   type: Schema.Types.ObjectId,
+  //   ref: 'Address'
+  // }
   // google and facebook
 }, schemaOptions)
 
-export const Client = model('Client', ClientSchema)
+const Client = model('Client', ClientSchema)
+export default Client
