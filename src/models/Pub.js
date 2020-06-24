@@ -35,4 +35,5 @@ const PubSchema = new Schema({
   // comentarios
 }, schemaOptions)
 
-export const Pub = model('Pub', PubSchema)
+const Pub = model('Pub', PubSchema)
+export default Pub

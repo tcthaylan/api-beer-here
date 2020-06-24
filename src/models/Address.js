@@ -12,4 +12,5 @@ const AddressSchema = new Schema({
   zipCode: String,
 }, schemaOptions)
 
-export const Address = model('Address', AddressSchema)
+const Address = model('Address', AddressSchema)
+export default Address

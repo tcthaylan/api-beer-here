@@ -16,4 +16,5 @@ const ProductSchema = new Schema({
   // categorias
 }, schemaOptions)
 
-export const Product = model('Product', ProductSchema)
+const Product = model('Product', ProductSchema)
+export default Product
