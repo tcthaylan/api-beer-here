@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { getClient } from '../functions/client/get'
+import { getClient, getAllClients } from '../functions/client/get'
 import { createClient } from '../functions/client/create'
 import { updateClient } from '../functions/client/update'
 import { deleteClient } from '../functions/client/delete'

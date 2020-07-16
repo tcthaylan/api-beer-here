@@ -21,7 +21,6 @@ const ClientSchema = new Schema({
   },
   // phoneNumber: {
   //   type: String,
-  //   required: true
   // },
   // address: {
   //   type: Schema.Types.ObjectId,
