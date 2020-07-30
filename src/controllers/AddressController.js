@@ -1,7 +1,7 @@
 import { Router } from 'express'
 import { getAllAdresses, getAddressById } from '../functions/address/get'
 import { createAddress } from '../functions/address/create'
-import { updateAdress } from '../functions/address/update'
+import { updateAddress } from '../functions/address/update'
 import { deleteAddress } from '../functions/address/delete'
 
 const router = Router()
@@ -19,7 +19,7 @@ router.post('/', (req, res) => {
 })
 
 router.put('/:addressId', (req, res) => {
-  updateAdress(req, res)
+  updateAddress(req, res)
 })
 
 router.delete('/:addressId', (req, res) => {

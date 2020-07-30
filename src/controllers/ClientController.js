@@ -7,7 +7,7 @@ import { deleteClient } from '../functions/client/delete'
 
 const router = Router()
 
-router.get('/', auth(['client']), (req, res) => {
+router.get('/', (req, res) => {
   getAllClients(req, res)
 })
 
