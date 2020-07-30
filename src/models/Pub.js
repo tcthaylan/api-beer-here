@@ -19,10 +19,10 @@ const PubSchema = new Schema({
     required: true,
     select: false,
   },
-  phoneNumber: {
-    type: String,
-    required: true
-  },
+  // phoneNumber: {
+  //   type: String,
+  //   required: true
+  // },
   address: {
     type: Schema.Types.ObjectId,
     ref: 'Address'

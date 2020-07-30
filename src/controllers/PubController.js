@@ -1,4 +1,5 @@
 import { Router } from 'express'
+import { createPub } from '../functions/pub/create'
 
 const router = Router()
 
@@ -7,7 +8,7 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-  res.send('Hello World')
+  createPub(req, res)
 })
 
 export const PubController = router

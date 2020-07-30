@@ -1,4 +1,5 @@
 import Client from '../../models/Client'
+import Pub from '../../models/Pub'
 import validateEmail from '../../utils/validadeEmail'
 
 export const createClient = async (req, res) => {
@@ -8,13 +9,15 @@ export const createClient = async (req, res) => {
     return res.status(400).send({ error: 'Email inválido, digite um formato válido' })
   }
 
-  const emailExists = await Client.findOne({ email })
-  if (emailExists) {
+  const pubEmailExists = await Pub.findOne({ email })
+  if (pubEmailExists) {
     return res.status(400).send({ error: 'Este email já existe, utilize outro' })
   }
-  
-  // cadastrar endereco
-  // facebook e google
+
+  const clientEmailExists = await Client.findOne({ email })
+  if (clientEmailExists) {
+    return res.status(400).send({ error: 'Este email já existe, utilize outro' })
+  }
 
   const client = new Client(req.body)
   await client.save((err) => {
