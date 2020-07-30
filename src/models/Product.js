@@ -10,7 +10,8 @@ const ProductSchema = new Schema({
     required: true
   },
   description: String,
-  price: Number,
+  // image: String,
+  // price: Number,
   // avalição
   // comentarios
   // categorias

@@ -1,4 +1,5 @@
 import { Router } from 'express'
+import auth from '../middlewares/auth'
 import { getClient, getAllClients } from '../functions/client/get'
 import { createClient } from '../functions/client/create'
 import { updateClient } from '../functions/client/update'
@@ -6,7 +7,7 @@ import { deleteClient } from '../functions/client/delete'
 
 const router = Router()
 
-router.get('/', (req, res) => {
+router.get('/', auth(['client']), (req, res) => {
   getAllClients(req, res)
 })
 
@@ -19,7 +20,6 @@ router.post('/', (req, res) => {
 })
 
 router.put('/:clientId', (req, res) => {
-  console.log('put')
   updateClient(req, res)
 })
 
