@@ -18,11 +18,11 @@ router.post('/', (req, res) => {
   createAddress(req, res)
 })
 
-router.put('/', (req, res) => {
+router.put('/:addressId', (req, res) => {
   updateAdress(req, res)
 })
 
-router.delete('/', (req, res) => {
+router.delete('/:addressId', (req, res) => {
   deleteAddress(req, res)
 })
 

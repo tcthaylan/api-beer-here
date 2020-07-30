@@ -8,7 +8,8 @@ import {
   ClientController,
   AuthController,
   PubController,
-  ProductController
+  ProductController,
+  AddressController
 } from './controllers'
 
 const server = express()
@@ -21,5 +22,6 @@ server.use('/client', ClientController)
 server.use('/auth', AuthController)
 server.use('/pub', PubController)
 server.use('/product', ProductController)
+server.use('/address', AddressController)
 
 server.listen(2000)

@@ -19,11 +19,11 @@ router.post('/', (req, res) => {
   createClient(req, res)
 })
 
-router.put('/', (req, res) => {
+router.put('/:clientId', (req, res) => {
   updateClient(req, res)
 })
 
-router.delete('/', (req, res) => {
+router.delete('/:clientId', (req, res) => {
   deleteClient(req, res)
 })
 
