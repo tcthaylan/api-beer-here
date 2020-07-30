@@ -1,4 +1,5 @@
 import { Schema, model } from '../database/index'
+import bcrypt from 'bcryptjs'
 
 const schemaOptions = {
   timestamps: true
@@ -35,6 +36,12 @@ const PubSchema = new Schema({
   // avalição
   // comentarios
 }, schemaOptions)
+
+PubSchema.pre('save', async function(next) {
+  const hash = await bcrypt.hash(this.password, 10);
+  this.password = hash;
+  next();
+})
 
 const Pub = model('Pub', PubSchema)
 export default Pub

@@ -1,7 +1,6 @@
 import Pub from '../../models/Pub'
 import Client from '../../models/Client'
 import validateEmail from '../../utils/validadeEmail'
-import createHash from '../../utils/createHash'
 
 export const createPub = async (req, res) => {
   const { email, password } = req.body
@@ -20,9 +19,7 @@ export const createPub = async (req, res) => {
     return res.status(400).send({ error: 'Este email já existe, utilize outro' })
   }
 
-  const pass = await createHash(password)
-
-  const pub = new Pub({...req.body, password: pass})
+  const pub = new Pub(req.body)
   await pub.save((err) => {
     if (err) {
       return res.status(400).send(err)
