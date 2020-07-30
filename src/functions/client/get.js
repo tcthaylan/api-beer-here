@@ -11,7 +11,7 @@ export const getClient = async (req, res) => {
     if (err) {
       return res.status(400).send({ error: 'Client não encontrado' })
     }
-  }).select('-password')
+  }).select('-password').exec()
 
   return res.send(client)
 }
