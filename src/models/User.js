@@ -31,11 +31,15 @@ const UserSchema = new Schema({
   },
   address: {
     type: Schema.Types.ObjectId,
-    ref: 'Address',
+    ref: 'UserAddress',
   },
   pubs: [{
     type: Schema.Types.ObjectId,
     ref: 'Pub'
+  }],
+  products: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Product'
   }]
   // google and facebook
 }, schemaOptions)

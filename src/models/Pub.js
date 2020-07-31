@@ -19,7 +19,7 @@ const PubSchema = new Schema({
   },
   address: {
     type: Schema.Types.ObjectId,
-    ref: 'Address'
+    ref: 'PubAddress'
   },
   products: [{
     type: Schema.Types.ObjectId,

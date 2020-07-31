@@ -10,6 +10,14 @@ const ProductSchema = new Schema({
     required: true
   },
   description: String,
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'Product'
+  },
+  pubs: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Pub'
+  }]
   // image: String,
   // price: Number,
   // avalição
