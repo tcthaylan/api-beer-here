@@ -1,6 +1,7 @@
 export * from './AuthController'
 export * from './ProductController'
-export * from './AddressController'
+export * from './UserAddressController'
+export * from './PubAddressController'
 export * from './PubController'
 export * from './UserController'
 // export * from './ClientController'

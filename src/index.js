@@ -7,9 +7,10 @@ import bodyParser from 'body-parser'
 import { 
   AuthController,
   ProductController,
-  AddressController,
+  UserAddressController,
   UserController,
   PubController,
+  PubAddressController
   // ClientController,
 } from './controllers'
 
@@ -21,7 +22,8 @@ server.use(express.urlencoded({ extended: true }));
 
 server.use('/auth', AuthController)
 server.use('/product', ProductController)
-server.use('/address', AddressController)
+server.use('/userAddress', UserAddressController)
+server.use('/pubAddress', PubAddressController)
 server.use('/user', UserController)
 server.use('/pub', PubController)
 // server.use('/client', ClientController)
