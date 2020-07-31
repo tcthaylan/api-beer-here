@@ -1,5 +1,4 @@
 import { Schema, model } from '../database/index'
-import bcrypt from 'bcryptjs'
 
 const schemaOptions = {
   timestamps: true
@@ -10,20 +9,14 @@ const PubSchema = new Schema({
     type: String,
     required: true
   },
-  email: {
+  description: {
     type: String,
-    required: true,
-    unique: true
+    required: true
   },
-  password: {
-    type: String,
-    required: true,
-    select: false,
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'User'
   },
-  // phoneNumber: {
-  //   type: String,
-  //   required: true
-  // },
   address: {
     type: Schema.Types.ObjectId,
     ref: 'Address'
@@ -32,16 +25,9 @@ const PubSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'Product'
   }]
-  // google and facebook
   // avalição
   // comentarios
 }, schemaOptions)
-
-PubSchema.pre('save', async function(next) {
-  const hash = await bcrypt.hash(this.password, 10);
-  this.password = hash;
-  next();
-})
 
 const Pub = model('Pub', PubSchema)
 export default Pub

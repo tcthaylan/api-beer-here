@@ -1,35 +1,22 @@
 import bcrypt from 'bcryptjs'
 import { Router } from 'express'
-import Client from '../models/Client'
-import Pub from '../models/Pub'
+import User from '../models/User'
 import { generateToken } from '../utils/tokenJwt'
 
 const router = Router()
 
 router.post('/login', async (req, res) => {
   const { email, password } = req.body;
-  const client = await Client.findOne({ email }).select('+password');
-  const pub = await Pub.findOne({ email }).select('+password');
-  if (!client && !pub) {
+  const user = await User.findOne({ email }).select('+password');
+  if (!user) {
     return res.status(400).send({ error: 'Email e/ou senha incorreto(s)' });
   }
-  
-  let user
-  let permission
 
-  if (client) {
-    if (!(await bcrypt.compare(password, client.password))) {
-      return res.status(400).send({ error: 'Email e/ou senha incorreto(s)' });
-    }
-    permission = 'client';
-    user = client
-  } else if (pub) {
-    if (!(await bcrypt.compare(password, pub.password))) {
-      return res.status(400).send({ error: 'Email e/ou senha incorreto(s)' });
-    }
-    user = pub
-    permission = 'pub';
+  if (!(await bcrypt.compare(password, user.password))) {
+    return res.status(400).send({ error: 'Email e/ou senha incorreto(s)' });
   }
+
+  const permission = user.provider ? 'pub' : 'client'
 
   const token = generateToken({ id: user._id, permission })
 
