@@ -4,7 +4,7 @@ dotenv.config()
 import express from 'express'
 import cors from 'cors'
 import bodyParser from 'body-parser'
-import { 
+import {
   AuthController,
   ProductController,
   UserAddressController,
@@ -14,9 +14,21 @@ import {
   // ClientController,
 } from './controllers'
 
+const whitelist = [
+  'http://localhost:3000',
+  'http://192.168.1.8:3000',
+  'http://192.168.1.8:2000',
+];
+
+const corsOptions = {
+  credentials: true,
+  optionsSuccessStatus: 200,
+  origin: whitelist,
+};
+
 const server = express()
 
-server.use(cors())
+server.use(cors({ origin: true, credentials: true }))
 server.use(bodyParser.json());
 server.use(express.urlencoded({ extended: true }));
 

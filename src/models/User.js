@@ -27,7 +27,7 @@ const UserSchema = new Schema({
   },
   phoneNumber: {
     type: String,
-    required: true
+    // required: true
   },
   address: {
     type: Schema.Types.ObjectId,
@@ -44,7 +44,7 @@ const UserSchema = new Schema({
   // google and facebook
 }, schemaOptions)
 
-UserSchema.pre('save', async function(next) {
+UserSchema.pre('save', async function (next) {
   const hash = await bcrypt.hash(this.password, 10);
   this.password = hash;
   next();

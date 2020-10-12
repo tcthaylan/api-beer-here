@@ -28,6 +28,14 @@ const PubAddressSchema = new Schema({
   pub: {
     type: Schema.Types.ObjectId,
     ref: 'Pub'
+  },
+  lat: {
+    type: Number,
+    required: true
+  },
+  lng: {
+    type: Number,
+    required: true
   }
 }, schemaOptions)
 
