@@ -24,9 +24,8 @@ const PubSchema = new Schema({
   products: [{
     type: Schema.Types.ObjectId,
     ref: 'Product'
-  }]
-  // avalição
-  // comentarios
+  }],
+  image: String
 }, schemaOptions)
 
 const Pub = model('Pub', PubSchema)

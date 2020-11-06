@@ -15,3 +15,7 @@ export const getUserAddressById = async (req, res) => {
 
   return res.send(userAddress)
 }
+
+export const getUserAddressByUserId = async (req, res) => {
+
+}

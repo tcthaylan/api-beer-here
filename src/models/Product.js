@@ -17,12 +17,12 @@ const ProductSchema = new Schema({
   pubs: [{
     type: Schema.Types.ObjectId,
     ref: 'Pub'
-  }]
-  // image: String,
-  // price: Number,
-  // avalição
-  // comentarios
-  // categorias
+  }],
+  categories: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Category'
+  }],
+  image: String
 }, schemaOptions)
 
 const Product = model('Product', ProductSchema)

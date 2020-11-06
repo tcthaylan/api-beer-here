@@ -12,6 +12,7 @@ export const getUserById = async (req, res) => {
       return res.status(400).send({ error: 'User not found' })
     }
   })
+    .populate('address')
 
   return res.send(user)
 }
